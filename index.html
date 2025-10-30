@@ -1,0 +1,553 @@
+<html class="light" lang="ja"> <!-- lang属性を "ja" に変更 -->
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>親子資産ラボ</title> <!-- 翻訳・変更 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<!-- 日本語フォントの読み込みを追加（オプション） -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    "primary": "#F4C2C2",
+                    "background-light": "#FFF9F9",
+                    "background-dark": "#36454F",
+                    "text-light": "#5D5D5D",
+                    "text-dark": "#EAEAEA",
+                },
+                fontFamily: {
+                    // Quicksandと日本語フォント(Noto Sans JP)を併用
+                    "display": ["Quicksand", "Noto Sans JP", "sans-serif"]
+                },
+                borderRadius: {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+                },
+                keyframes: {
+                    fadeInUp: {
+                        '0%': {
+                            opacity: '0',
+                            transform: 'translateY(20px)'
+                        },
+                        '100%': {
+                            opacity: '1',
+                            transform: 'translateY(0)'
+                        },
+                    }
+                },
+                animation: {
+                    'fade-in-up': 'fadeInUp 1s ease-out forwards',
+                    'fade-in-up-delayed': 'fadeInUp 1s ease-out 0.5s forwards',
+                }
+            },
+        },
+    }
+</script>
+<style>
+    .material-symbols-outlined {
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+    .animate-fade-in-up {
+        animation-name: fadeInUp;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-out;
+        opacity: 0;
+    }
+    .animation-delay-500 {
+        animation-delay: 0.5s;
+    }
+    /* 日本語フォントを適用するための調整 */
+    body {
+        font-family: "Quicksand", "Noto Sans JP", sans-serif;
+    }
+</style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<div class="px-4 md:px-10 lg:px-40 flex flex-1 justify-center py-5">
+<div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+<header class="sticky top-5 z-10 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-primary/40 dark:border-b-white/20 px-10 py-3 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md rounded-full">
+<div class="flex items-center gap-4 text-text-light dark:text-white">
+<div class="size-6 text-primary">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_6_330)">
+<path clip-rule="evenodd" d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z" fill="currentColor" fill-rule="evenodd"></path>
+</g>
+<defs>
+<clipPath id="clip0_6_330">
+<rect fill="white" height="48" width="48"></rect>
+</clipPath>
+</defs></svg>
+</div>
+<h2 class="text-text-light dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">親子資産ラボ</h2> <!-- 翻訳・変更 -->
+</div>
+<div class="hidden md:flex flex-1 justify-end gap-8">
+<div class="flex items-center gap-9">
+<a class="text-text-light dark:text-gray-300 text-sm font-medium leading-normal" href="#why-us">選ばれる理由</a> <!-- 翻訳 -->
+<a class="text-text-light dark:text-gray-300 text-sm font-medium leading-normal" href="#what-we-teach">学習内容</a> <!-- 翻訳 -->
+<a class="text-text-light dark:text-gray-300 text-sm font-medium leading-normal" href="#pricing">料金</a> <!-- 翻訳 -->
+<a class="text-text-light dark:text-gray-300 text-sm font-medium leading-normal" href="#faq">よくある質問</a> <!-- 翻訳 -->
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">今すぐ始める</span> <!-- 翻訳 -->
+</button>
+</div>
+<div class="md:hidden">
+<button class="text-text-light dark:text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<main class="flex flex-col gap-10 md:gap-20 py-10">
+<section class="@[480px]:p-4">
+<!-- 翻訳: data-alt -->
+<div class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-xl items-start justify-end px-4 pb-10 @[480px]:px-10" data-alt="母親と娘が居心地の良いリビングルームでタブレットを見ながら微笑み、金融について学んでいる様子。" style='background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCPx_-tfc23RJ6_CVXg_jCWPJw3iNFfJJ6D8ZiBVphkHoOfsGGvmNRxcxtwEDiPrEVlEHwgxvcbvL-RKzuKybGA5gAgEqtiFyLuePdCuvMO_K3gTHjEX1twg98UPjPz9KAMVTqlMEa7gPkFn6zxW_YExCxKkyJMiKMP8eE9dagHtRxPfmS_oIroxUO6TD6bhoIGS_QOaytVbXtfuUscJONNL9SkLoqNGFbVRRSDn8gWLMbUru_UxWkGgulEOUzkHWf-dAmgl-PcjQU");'>
+<div class="flex flex-col gap-2 text-left">
+<h1 class="text-white text-4xl font-bold leading-tight tracking-tight @[480px]:text-5xl @[480px]:font-bold @[480px]:leading-tight @[480px]:tracking-tight animate-fade-in-up">
+                            はじめての、お金のたからばこ！
+                        </h1> <!-- 翻訳・変更 -->
+<h2 class="text-white text-base font-normal leading-relaxed @[480px]:text-lg @[480px]:font-normal @[480px]:leading-relaxed max-w-xl animate-fade-in-up animation-delay-500">
+                            親子の「不安」を「行動する自信」に変えるそれが親子資産ラボです。
+                        </h2> <!-- 翻訳・変更 -->
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] animate-fade-in-up animation-delay-500 transition-all duration-300 ease-in-out hover:bg-primary/80 hover:scale-105 hover:shadow-lg" style="animation-delay: 1s;">
+<span class="truncate">今すぐ始める</span> <!-- 翻訳 -->
+</button>
+</div>
+</section>
+
+<!-- ▼▼▼ 復活させたセクション (id="why-us") ▼▼▼ -->
+<section class="flex flex-col gap-10 px-4 @container" id="why-us">
+<div class="flex flex-col gap-6">
+<div class="flex flex-col gap-4">
+<h1 class="text-text-light dark:text-white tracking-tight text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-bold @[480px]:leading-tight @[480px]:tracking-tight max-w-[720px]">
+                            お子さんの将来、こんな"根深い恐怖"で動けなくなっていませんか？
+                        </h1>
+<p class="text-gray-500 dark:text-gray-300 text-base font-normal leading-relaxed max-w-[720px]">
+                            「いつか」と先延ばしにしている自分に、ハッとしたことはありませんか？
+                        </p>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-primary/20 text-primary text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] w-fit">
+<span class="truncate">さらに詳しく</span>
+</button>
+</div>
+<div class="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-3 p-0">
+<!-- カード1: 間違った知識 -->
+<div class="flex flex-1 gap-3 rounded-lg border border-gray-200 dark:border-white/20 bg-background-light dark:bg-background-dark p-4 flex-col">
+<div class="text-red-400"><span class="material-symbols-outlined">sentiment_dissatisfied</span></div>
+<div class="flex flex-col gap-1">
+<h2 class="text-text-light dark:text-white text-base font-bold leading-tight">「間違った知識を教えるのが怖い」</h2>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-relaxed">
+                                自己流の知識で、子どものお金に対する考え方を歪めてしまったら…。その責任を思うと、一歩も踏み出せない。
+                            </p>
+</div>
+</div>
+<!-- カード2: 時間の無駄 -->
+<div class="flex flex-1 gap-3 rounded-lg border border-gray-200 dark:border-white/20 bg-background-light dark:bg-background-dark p-4 flex-col">
+<div class="text-red-400"><span class="material-symbols-outlined">sentiment_dissatisfied</span></div>
+<div class="flex flex-col gap-1">
+<h2 class="text-text-light dark:text-white text-base font-bold leading-tight">「時間を無駄にするのが怖い」</h2>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-relaxed">
+                                共働きで忙しい中、非効率な教材を選んで親子で挫折したら…。情報収集の時間すら惜しい。
+                            </p>
+</div>
+</div>
+<!-- カード3: 売り込み -->
+<div class="flex flex-1 gap-3 rounded-lg border border-gray-200 dark:border-white/20 bg-background-light dark:bg-background-dark p-4 flex-col">
+<div class="text-red-400"><span class="material-symbols-outlined">sentiment_dissatisfied</span></div>
+<div class="flex flex-col gap-1">
+<h2 class="text-text-light dark:text-white text-base font-bold leading-tight">「"売り込み"が怖い」</h2>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-relaxed">
+                                結局、高額な商品を勧められるのでは？という警戒心から、純粋な「教育」に踏み出せない。
+                            </p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ▼▼▼ 復活させるセクション (id="what-we-teach") ▼▼▼ -->
+<section class="flex flex-col gap-10 px-4 @container" id="what-we-teach">
+<div class="flex flex-col gap-4">
+<h1 class="text-text-light dark:text-white tracking-tight text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-bold @[480px]:leading-tight @[480px]:tracking-tight max-w-[720px]">
+                        「こわい」を「できた！」に変える場所
+                    </h1>
+<p class="text-gray-500 dark:text-gray-300 text-base font-normal leading-relaxed max-w-[720px]">
+                        私たちは金融の「専門家」ではありません。あなたの不安に寄り添い、一緒に「最初の一歩」を踏み出す「伴走パートナー」です。
+                    </p>
+</div>
+<div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-6">
+<div class="flex flex-col gap-3 pb-3">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl" data-alt="若い女の子が母親と一緒に木製のテーブルで透明な貯金箱にコインを慎重に入れている様子。" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAO5jfiSovoHKLr0FAEfgFE_edKTq_YfHspiCpOo6SufNy65eZNSpqliOE39xITygWPefAWqERysTXlmIGYPlM0fkOXwOZc2HB1_Aa-0RujIxr8NwUXxrWbckXuXJab7C3KgB7-R22VWX_bStrii0tLJTDzMQBaAxg4y7SR4pPzmB_2cGfPPUq5R_SSdY8FLcaPsdPm9ZrvF-8beb3aP0E1wfmWeMGiZVFETwKOUIGfHXaerrjEzHKsvt0gBMe3I_ZCp7QYAfy_S4E");'></div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1">check_circle</span>
+<div>
+<p class="text-text-light dark:text-white text-base font-medium leading-normal">専門用語は使いません</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-relaxed">「投資信託」「NISA」…？大丈夫。まずは「おこづかい」から。親子で楽しく話せる言葉だけを使います。</p>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-3 pb-3">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl" data-alt="母親と娘が床の上でカラフルな金融ボードゲームを一緒に笑いながら遊んでいる様子。" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAQu7KjKUnYLcSsoeq1_iRnqb6LJw-gB6NKlUFQ1eOxPonDuqlOwXOXAOrxVASeSTsrJ0p4skKuy35ASnJl74GFXw7QB8QhtmKUYrnxuR-1qPP8t1r6Jbyvp_2EPi-2gKkbDLlB8mJn-GJ__bOHCJM443Z9qNhnI1KHPu_vegU4M9NLKvd9d0YZ0abHcCLUVutpnk3ViZeKWKM6bfFjvorv6ZzciAGG4J65mef6amYWxcSCy4-ocupfgO3oE6GFaGVgZJznDtp49eU");'></div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1">celebration</span>
+<div>
+<p class="text-text-light dark:text-white text-base font-medium leading-normal">間違えても大丈夫</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-relaxed">ここはテストの場ではありません。ゲームやクイズで楽しく「失敗」しながら、親子で一緒に学べます。</p>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-3 pb-3">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl" data-alt="母親がタブレットで予算管理アプリの使い方をティーンエイジャーの娘に指導している様子。" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBik5C5S59YDxmdxbL1cXa-6xmVMxu5oFz7dy6XZUSu4rkt6C_XRPWkgCgoPGy8Aw9eFAH5A-P_l4vFQhPjoWrenLBB9LEMEetJJrZwHpEJnPns2gEQ6mTOfofADNqVIht35KpcBLmt-N7cLcJzreVLCweHB14YL-GVzRRHGTRw07JRNCfsLx2HTfcy8BMuu6L82jRsLsDvBzpBmE5rnK6FKe6Ow2rggSqjUQyt4drZAe8Y3FVpguxN0b7KtEXvlx1jQvewYYkKa8U");'></div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1">forum</span>
+<div>
+<p class="text-text-light dark:text-white text-base font-medium leading-normal">あなたは一人じゃない</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-relaxed">
+                                他の保護者が「何につまずき、どう乗り越えたか」を共有。コミュニティの体験談があなたの勇気になります。
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ▲▲▲ ここまで復活 ▲▲▲ -->
+
+<!-- ▼▼▼ 復活させるセクション (id="how-it-works") ▼▼▼ -->
+<section class="flex flex-col gap-10 px-4 @container" id="how-it-works">
+<div class="text-center flex flex-col gap-4">
+<h1 class="text-text-light dark:text-white text-4xl font-bold leading-tight tracking-tight">迷わない、3つのステップ</h1>
+<p class="text-gray-500 dark:text-gray-300 text-base font-normal leading-relaxed max-w-2xl mx-auto">忙しくても、自信がなくても大丈夫。親子資産ラボは、あなたの「最初の一歩」を全力でサポートするシンプルな仕組みです。</p>
+</div>
+<div class="relative flex flex-col md:flex-row gap-8 md:gap-4 items-start justify-center">
+<div class="hidden md:block absolute top-10 left-0 w-full border-t-2 border-dashed border-primary/50 dark:border-white/20 -z-10"></div>
+<div class="flex flex-1 flex-col items-center text-center gap-4">
+<div class="flex items-center justify-center size-12 rounded-full bg-primary/20 text-primary font-bold text-xl">1</div>
+<div class="flex flex-col gap-2">
+<h3 class="text-text-light dark:text-white text-lg font-bold">まずは「お試し」登録</h3>
+<p class="text-gray-500 dark:text-gray-400 text-sm">難しい手続きは不要です。まずは気軽に、親子でどんな体験ができるか覗いてみてください。</p>
+<a class="text-primary font-bold text-sm mt-2 hover:underline" href="#">最初のステップに進む →</a>
+</div>
+</div>
+<div class="flex flex-1 flex-col items-center text-center gap-4">
+<div class="flex items-center justify-center size-12 rounded-full bg-primary/20 text-primary font-bold text-xl">2</div>
+<div class="flex flex-col gap-2">
+<h3 class="text-text-light dark:text-white text-lg font-bold">親子で「やってみる」</h3>
+<p class="text-gray-500 dark:text-gray-400 text-sm">難しい専門用語はありません。「これならできそう！」と思える簡単なタスクやクイズに、親子で挑戦してみましょう。</p>
+<a class="text-primary font-bold text-sm mt-2 hover:underline" href="#">どんなタスクがあるか見る →</a>
+</div>
+</div>
+<div class="flex flex-1 flex-col items-center text-center gap-4">
+<div class="flex items-center justify-center size-12 rounded-full bg-primary/20 text-primary font-bold text-xl">3</div>
+<div class="flex flex-col gap-2">
+<h3 class="text-text-light dark:text-white text-lg font-bold">「できた！」を自信に</h3>
+<p class="text-gray-500 dark:text-gray-400 text-sm">小さな「できた！」を積み重ねることが、お金と向き合う自信に変わります。お子様の成長を一緒に見守りましょう。</p>
+<a class="text-primary font-bold text-sm mt-2 hover:underline" href="#">みんなの体験談を見る →</a>
+</div>
+</div>
+</div>
+</section>
+<!-- ▲▲▲ ここまで復活 ▲▲▲ -->
+
+
+<section class="flex flex-col gap-10 px-4 py-10 @container bg-primary/10 dark:bg-background-dark/50 rounded-xl" id="simulation">
+<div class="text-center flex flex-col gap-4">
+<h1 class="text-text-light dark:text-white text-4xl font-bold leading-tight tracking-tight">保護者向け：未来の資産シミュレーション</h1>
+<p class="text-gray-500 dark:text-gray-300 text-base font-normal leading-relaxed max-w-3xl mx-auto">
+                「もし毎月コツコツお金を貯めたら？」「もし『お金に働いてもらう』力を使ったら？」いくつかの数字を入れるだけで、未来の姿を簡単に比べることができます。お子様への説明にご活用いただくと同時に、保護者様自身の将来へのご不安を和げる一助としてもお役立てください。
+            </p> <!-- 変更 -->
+</div>
+<div class="w-full max-w-lg mx-auto bg-background-light dark:bg-background-dark p-6 rounded-lg shadow-md border border-gray-200 dark:border-white/20">
+<!-- 入力フォーム -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div>
+<label for="monthlyAmount" class="block text-sm font-medium text-text-light dark:text-gray-300">毎月の積立額（円）</label>
+<input type="number" id="monthlyAmount" value="10000" class="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white shadow-sm focus:border-primary focus:ring-primary">
+</div>
+<div>
+<label for="investmentPeriod" class="block text-sm font-medium text-text-light dark:text-gray-300">積立期間（年）</label>
+<input type="number" id="investmentPeriod" value="10" class="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white shadow-sm focus:border-primary focus:ring-primary">
+</div>
+</div>
+<div class="mt-4">
+<label for="annualRate" class="block text-sm font-medium text-text-light dark:text-gray-300">想定年利（%）</label>
+<input type="number" id="annualRate" value="3" class="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white shadow-sm focus:border-primary focus:ring-primary">
+</div>
+<button id="calculateButton" class="w-full mt-6 flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-5 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] transition-all duration-300 ease-in-out hover:bg-primary/90 hover:scale-105 hover:shadow-lg">
+<span class="truncate">計算する</span>
+</button>
+
+<!-- 結果表示 -->
+<div class="mt-8 border-t border-gray-200 dark:border-white/20 pt-6">
+<div class="flex justify-between items-center bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
+<span class="text-base font-medium text-text-light dark:text-gray-300">貯金の場合</span>
+<span id="simpleTotal" class="text-2xl font-bold text-text-light dark:text-white">￥0</span>
+</div>
+<div class="flex justify-between items-center bg-primary/20 p-4 rounded-lg mt-3">
+<span class="text-base font-medium text-primary dark:text-primary">お金に働いてもらった場合</span> <!-- 変更 -->
+<span id="compoundTotal" class="text-2xl font-bold text-primary dark:text-primary">￥0</span>
+</div>
+<div class="text-center mt-6">
+<p class="text-base text-gray-500 dark:text-gray-400">その差額は…</p>
+<p id="difference" class="text-4xl font-bold text-text-light dark:text-white mt-1">￥0！</p>
+</div>
+</div>
+</div>
+</section>
+<!-- ▲▲▲ ここまで追加 ▲▲▲ -->
+
+<section class="flex flex-col gap-10 px-4 py-10" id="pricing">
+<div class="text-center flex flex-col gap-4">
+<h1 class="text-text-light dark:text-white text-4xl font-bold leading-tight tracking-tight">「あとで」を「今、やってみる」に</h1> <!-- 変更 -->
+<p class="text-gray-500 dark:text-gray-300 text-base font-normal leading-relaxed max-w-2xl mx-auto">あなたの「最初の一歩」を応援する、2つのシンプルなプランをご用意しました。無理なく始められる方をお選びください。</p> <!-- 変更 -->
+</div>
+<div class="flex flex-col md:flex-row items-center md:items-start justify-center gap-8 md:gap-4">
+<div class="flex flex-1 flex-col gap-6 rounded-xl border border-gray-200 dark:border-white/20 bg-background-light dark:bg-background-dark p-6 max-w-sm w-full">
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center size-8 rounded-full bg-primary/20 text-primary font-bold">1</div>
+<h2 class="text-text-light dark:text-white text-xl font-bold">まずは、お試しから</h2> <!-- 変更 -->
+</div>
+<p class="text-gray-500 dark:text-gray-300">どんな雰囲気か知りたい方へ。まずは気軽に覗いてみてください。</p> <!-- 変更 -->
+</div>
+<div class="flex flex-col gap-3">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1">explore</span>
+<div>
+<h3 class="text-text-light dark:text-white font-medium">「できた！」を体験</h3> <!-- 変更 -->
+<p class="text-sm text-gray-500 dark:text-gray-400">親子で取り組む、いちばん簡単な「お試しタスク」に挑戦できます。</p> <!-- 変更 -->
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1">play_circle</span>
+<div>
+<h3 class="text-text-light dark:text-white font-medium">楽しいショート動画</h3> <!-- 変更 -->
+<p class="text-sm text-gray-500 dark:text-gray-400">お子様が夢中になる、お金の「なぜ？」に答える動画が見放題。</p> <!-- 変更 -->
+</div>
+</div>
+</div>
+<div class="mt-4">
+<p class="text-center text-text-light dark:text-white">
+<span class="text-3xl font-bold">800円</span>
+<span class="text-gray-500 dark:text-gray-400">/ 14日間</span>
+</p>
+<button class="w-full mt-2 flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] transition-all duration-300 ease-in-out hover:bg-primary/80 hover:scale-105 hover:shadow-lg">
+<span class="truncate">800円でお試しプランを始める</span>
+</button>
+<!-- ▼▼▼ ここから追加 ▼▼▼ -->
+<a href="https://notebooklm.google.com/notebook/e7312d60-13ba-44ee-92fc-553bd2e9d8ea" target="_blank" rel="noopener noreferrer" class="block text-center text-xs text-gray-400 dark:text-gray-500 mt-3 hover:underline">
+                        利用規約が適用されます
+                    </a>
+<!-- ▲▲▲ ここまで追加 ▲▲▲ -->
+<div class="mt-4 text-left text-sm text-gray-500 dark:text-gray-400 space-y-2">
+<p class="font-bold text-text-light dark:text-gray-300">安心のお約束：</p>
+<!-- ▼▼▼ 項目を削除 ▼▼▼ -->
+<!-- <div class="flex items-start gap-2">
+                        <span class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span>
+                        <p>トライアル後の自動更新はありません。</p>
+                    </div> -->
+<!-- ▲▲▲ 削除ここまで ▲▲▲ -->
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span>
+<p>金融商品の勧誘は一切ありません。</p>
+</div>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-center h-full md:w-auto">
+<span class="material-symbols-outlined text-4xl text-gray-300 dark:text-gray-500 -rotate-90 md:rotate-0">arrow_right_alt</span>
+</div>
+<div class="flex flex-1 flex-col gap-6 rounded-xl border-2 border-primary bg-primary/5 dark:bg-primary/10 p-6 max-w-sm w-full">
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center size-8 rounded-full bg-primary text-white font-bold">2</div>
+<h2 class="text-text-light dark:text-white text-xl font-bold">じっくり、伴走プラン</h2> <!-- 変更 -->
+</div>
+<p class="text-gray-500 dark:text-gray-300">不安を自信に変えたい方へ。私たちがゴールまで一緒に伴走します。</p> <!-- 変更 -->
+</div>
+<div class="flex flex-col gap-3">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1">school</span>
+<div>
+<h3 class="text-text-light dark:text-white font-medium">全タスクに挑戦</h3> <!-- 変更 -->
+<p class="text-sm text-gray-500 dark:text-gray-400">「貯める」「使う」「増やす」の基礎が身につく全タスクを開放。</p> <!-- 変更 -->
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1">family_history</span>
+<div>
+<h3 class="text-text-light dark:text-white font-medium">Q&Aで不安解消</h3> <!-- 変更 -->
+<p class="text-sm text-gray-500 dark:text-gray-400">「これってどうなの？」という疑問に、いつでもお答えします。</p> <!-- 変更 -->
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1">group</span>
+<div>
+<h3 class="text-text-light dark:text-white font-medium">仲間とつながる</h3> <!-- 変更 -->
+<p class="text-sm text-gray-500 dark:text-gray-400">他の保護者の「できた！」体験談を共有。もう一人ではありません。</p> <!-- 変更 -->
+</div>
+</div>
+</div>
+<div class="mt-4">
+<p class="text-center text-text-light dark:text-white">
+<span class="text-3xl font-bold">$29</span>
+<span class="text-gray-500 dark:text-gray-400">/ 月</span> <!-- 翻訳 -->
+</p>
+<!-- ▼▼▼ ボタンを削除 ▼▼▼ -->
+<!-- <button class="w-full mt-2 flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] transition-all duration-300 ease-in-out hover:bg-primary/80 hover:scale-105 hover:shadow-lg">
+                        <span class="truncate">メンバーになる</span>
+                    </button> -->
+<!-- ▲▲▲ 削除ここまで ▲▲▲ -->
+<div class="mt-4 text-left text-sm text-gray-500 dark:text-gray-400 space-y-2">
+<p class="font-bold text-text-light dark:text-gray-300">安心のお約束：</p>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span>
+<p>入会金・退会金は一切ありません。</p>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span>
+<p>いつでもオンラインで簡単に解約できます。</p>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span>
+<p>金融商品の勧誘は一切ありません。</p>
+</div>
+</div>
+<!-- ▲▲▲ ここまで追加 ▲▲▲ -->
+</div>
+</div>
+</div>
+</section>
+<section class="flex flex-col gap-8 p-8 bg-primary/10 dark:bg-background-dark/50 rounded-xl items-center text-center" id="faq"> <!-- id="faq" を追加 -->
+<div class="flex flex-col gap-2">
+<h2 class="text-2xl font-bold text-text-light dark:text-white">ご質問・お問い合わせ</h2>
+<p class="text-gray-500 dark:text-gray-300">ご不明な点がございましたら、お気軽にお問い合わせください。</p>
+</div>
+<div class="w-full max-w-2xl flex flex-col sm:flex-row items-stretch justify-center gap-6">
+<div class="flex flex-col gap-3 items-center flex-1">
+<p class="text-sm font-medium text-text-light dark:text-gray-300">よくある質問はこちら</p>
+<button class="flex min-w-[84px] w-full cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-5 bg-white dark:bg-gray-700 text-text-light dark:text-text-dark text-base font-bold leading-normal tracking-[0.015em] transition-all duration-300 ease-in-out hover:bg-gray-100 dark:hover:bg-gray-600 hover:scale-105 hover:shadow-lg border border-gray-200 dark:border-gray-600">
+<span class="truncate">Q&amp;A</span>
+</button>
+</div>
+<div class="flex flex-col gap-3 items-center flex-1">
+<p class="text-sm font-medium text-text-light dark:text-gray-300">直接のお問い合わせ</p>
+<button class="flex min-w-[84px] w-full cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-5 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] transition-all duration-300 ease-in-out hover:bg-primary/90 hover:scale-105 hover:shadow-lg">
+<span class="truncate">お問い合わせフォーム</span> <!-- 翻訳 -->
+</button>
+</div>
+<div class="flex flex-col gap-3 items-center flex-1">
+<p class="text-sm font-medium text-text-light dark:text-gray-300">会員の方はこちら</p>
+<button class="flex min-w-[84px] w-full cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-5 bg-white dark:bg-gray-700 text-text-light dark:text-text-dark text-base font-bold leading-normal tracking-[0.015em] transition-all duration-300 ease-in-out hover:bg-gray-100 dark:hover:bg-gray-600 hover:scale-105 hover:shadow-lg border border-gray-200 dark:border-gray-600">
+<span class="truncate">会員ページ</span> <!-- 翻訳 -->
+</button>
+</div>
+</div>
+</section>
+</main>
+<footer class="border-t border-solid border-t-primary/40 dark:border-t-white/20 pt-8 pb-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-4">
+<div class="size-6 text-primary">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip1_6_330)">
+<path clip-rule="evenodd" d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z" fill="currentColor" fill-rule="evenodd"></path>
+</g>
+<defs>
+<clipPath id="clip1_6_330">
+<rect fill="white" height="48" width="48"></rect>
+</clipPath>
+</defs></svg>
+</div>
+<p class="text-sm text-gray-500 dark:text-gray-400">© 2024 親子資産ラボ. All rights reserved.</p> <!-- 翻訳・変更 -->
+</div>
+<div class="flex items-center gap-4 text-sm">
+<a class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-transparent text-text-light dark:text-gray-300 border border-primary/40 dark:border-white/20 text-sm font-medium leading-normal transition-all duration-300 ease-in-out hover:bg-primary/20 hover:scale-105 hover:shadow-md" href="#">利用規約</a> <!-- 翻訳 -->
+<a class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-transparent text-text-light dark:text-gray-300 border border-primary/40 dark:border-white/20 text-sm font-medium leading-normal transition-all duration-300 ease-in-out hover:bg-primary/20 hover:scale-105 hover:shadow-md" href="#">プライバシーポリシー</a> <!-- 翻訳 -->
+</div>
+</footer>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ▼▼▼ ここから追加 ▼▼▼ -->
+<script>
+    // 資産シミュレーションの計算ロジック
+    document.addEventListener('DOMContentLoaded', () => {
+        const calculateButton = document.getElementById('calculateButton');
+        const monthlyAmountEl = document.getElementById('monthlyAmount');
+        const investmentPeriodEl = document.getElementById('investmentPeriod');
+        const annualRateEl = document.getElementById('annualRate');
+
+        const simpleTotalEl = document.getElementById('simpleTotal');
+        const compoundTotalEl = document.getElementById('compoundTotal');
+        const differenceEl = document.getElementById('difference');
+
+        function calculate() {
+            // 1. 入力値の取得
+            const amount = parseFloat(monthlyAmountEl.value) || 0;
+            const years = parseFloat(investmentPeriodEl.value) || 0;
+            const rate = parseFloat(annualRateEl.value) || 0;
+
+            // 2. 計算
+            const totalMonths = years * 12;
+            const monthlyRate = (rate / 100) / 12;
+
+            // 貯金の場合（元本合計）
+            const simpleTotal = amount * totalMonths;
+
+            // 複利で運用の場合 (毎月積立)
+            let compoundTotal = 0;
+            if (monthlyRate > 0) {
+                // 複利計算式: P * [((1 + r)^n - 1) / r]
+                compoundTotal = amount * ((((1 + monthlyRate) ** totalMonths) - 1) / monthlyRate);
+            } else {
+                // 年利0%の場合は貯金と同じ
+                compoundTotal = simpleTotal;
+            }
+
+            // 差額
+            const difference = compoundTotal - simpleTotal;
+
+            // 3. 結果の表示（日本円表記にフォーマット）
+            const formatter = new Intl.NumberFormat('ja-JP', {
+                style: 'currency',
+                currency: 'JPY',
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
+            });
+
+            simpleTotalEl.textContent = formatter.format(simpleTotal);
+            compoundTotalEl.textContent = formatter.format(compoundTotal);
+            differenceEl.textContent = formatter.format(difference) + '！';
+        }
+
+        // ボタンクリック時、または各フォームの値変更時にも計算
+        if (calculateButton) {
+            calculateButton.addEventListener('click', calculate);
+        }
+        [monthlyAmountEl, investmentPeriodEl, annualRateEl].forEach(el => {
+            if (el) {
+                el.addEventListener('input', calculate);
+            }
+        });
+
+        // ページ読み込み時に初期値で計算
+        calculate();
+    });
+</script>
+<!-- ▲▲▲ ここまで追加 ▲▲▲ -->
+
+</body></html>
